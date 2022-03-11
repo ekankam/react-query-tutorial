@@ -22,14 +22,16 @@ body {
   text-align: center;
 }
 .app {
-  max-width: 1280px;
+  max-width: 960px;
   width: 100%;
-  margin-inline: auto;
+  margin: auto;
+  padding: 2rem 1rem;
 }
 h1 {
   color: #ffff57;
   font-size: 4rem;
   letter-spacing: 2px;
+  margin-bottom: 3rem;
 }
 button {
   margin: 0 10px;
@@ -47,4 +49,18 @@ button:hover {
 }
 .content {
   text-align: left;
+}
+.card {
+  padding: 8px 16px;
+  background: #1b1b1b;
+  margin: 16px 0;
+  border-radius: 20px;
+}
+.card p {
+  margin: 6px 0;
+  color: #999;
+}
+.card h3 {
+  margin: 10px 0;
+  color: #ffff57;
 }
