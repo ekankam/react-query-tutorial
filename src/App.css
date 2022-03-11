@@ -1,0 +1,50 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  min-height: 100vh;
+}
+
+body {
+  min-height: 100vh;
+  width: 100%;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-weight: 400;
+  font-size: 1.5rem;
+  background: #222;
+  color: #ddd;
+  text-align: center;
+}
+.app {
+  max-width: 1280px;
+  width: 100%;
+  margin-inline: auto;
+}
+h1 {
+  color: #ffff57;
+  font-size: 4rem;
+  letter-spacing: 2px;
+}
+button {
+  margin: 0 10px;
+  background: transparent;
+  border: 3px solid #ccc;
+  border-radius: 20px;
+  padding: 10px;
+  color: #ccc;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+button:hover {
+  color: #fff;
+  border-color: #fff;
+}
+.content {
+  text-align: left;
+}
