@@ -1,30 +1,50 @@
-import React from 'react'
-import { useQuery } from 'react-query'
+import useGetStarWarData from '../hooks/useGetStarWarData'
 import Person from './Person'
 
 const People = () => {
-  const fetchPeople = async () => {
-    const response = await fetch('http://swapi.dev/api/people/')
-    const data = await response.json()
-    return data
-  }
+  const {
+    data,
+    isLoading,
+    isError,
+    error,
+    isFetched,
+    isFetching,
+    setPage,
+    page,
+    isPreviousData,
+  } = useGetStarWarData('people')
 
-  const { data, status } = useQuery('people', fetchPeople)
-
+  console.log(data)
   return (
     <div>
       <h2>People</h2>
 
-      {status === 'loading' && <h4>Loading data...</h4>}
-      {status === 'error' && <h4>Error fetching data</h4>}
+      <button
+        onClick={() => setPage((old) => old - 1)}
+        disabled={page === 1}
+        className={`${page === 1 && 'disable'}`}
+      >
+        Previous Page
+      </button>
+      <span>Page: {page}</span>
+      <button
+        onClick={() => setPage((old) => old + 1)}
+        disabled={isPreviousData || !data?.next}
+        className={`${!data?.next && 'disable'}`}
+      >
+        Next Page
+      </button>
 
-      {status === 'success' && (
+      {isLoading && <h2>Loading data...</h2>}
+      {isError && <h4>{error}</h4>}
+      {isFetched && (
         <>
           {data.results?.map((person) => (
             <Person key={person.name} person={person} />
           ))}
         </>
       )}
+      {isFetching && <h4>Loading next page...</h4>}
     </div>
   )
 }
